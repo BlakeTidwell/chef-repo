@@ -1,8 +1,8 @@
 #
 # Cookbook Name:: apache2
-# Recipe:: authz_host
+# Attributes:: mod_pagespeed
 #
-# Copyright 2008-2013, Opscode, Inc.
+# Copyright 2013, ZOZI
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,4 +17,9 @@
 # limitations under the License.
 #
 
-apache_module 'authz_host'
+default['apache2']['mod_pagespeed']['package_link'] =
+  if node['kernel']['machine'] =~ /^i[36']86$/
+    'https://dl-ssl.google.com/dl/linux/direct/mod-pagespeed-stable_current_i386.deb'
+  else
+    'https://dl-ssl.google.com/dl/linux/direct/mod-pagespeed-stable_current_amd64.deb'
+  end
