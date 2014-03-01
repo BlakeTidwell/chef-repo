@@ -1,0 +1,23 @@
+.DS_Store
+
+.vagrant
+Berksfile.lock
+*~
+*#
+.#*
+\#*#
+.*.sw[a-z]
+*.un~
+/cookbooks
+
+# Bundler
+Gemfile.lock
+bin/*
+.bundle/*
+
+# Ignore public source; use symlink only
+/public
+
+# Need ref to public to include as shared folder
+!/public/.gitkeep
+
