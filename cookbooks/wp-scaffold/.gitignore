@@ -1,5 +1,3 @@
-.DS_Store
-
 .vagrant
 Berksfile.lock
 *~
@@ -14,10 +12,4 @@ Berksfile.lock
 Gemfile.lock
 bin/*
 .bundle/*
-
-# Ignore public source; use symlink only
-/public
-
-# Need ref to public to include as shared folder
-!/public/.gitkeep
 
