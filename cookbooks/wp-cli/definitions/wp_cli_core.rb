@@ -22,10 +22,6 @@ define :wp_plugin_activate do
   log "Running wp plugin activate #{params[:name]}"
   execute "activate plugin" do
     cwd node['wp_scaffold']['dir']
-    command "touch wtf"
-  end
-  execute "activate plugin" do
-    cwd node['wp_scaffold']['dir']
     command "wp plugin activate #{params[:name]}"
     # not_if do FileTest.directory?("#{node['wp_scaffold']['dir']}/wp-content/plugins/#{params[:name]}") end
   end
