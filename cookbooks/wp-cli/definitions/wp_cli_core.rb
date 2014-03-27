@@ -18,11 +18,11 @@ define :wp_core_install do
   end
 end
 
-define :wp_plugin_activate do
-  log "Running wp plugin activate #{params[:name]}"
-  execute "activate plugin" do
+define :wp_activate do
+  log "Activating #{params[:type]} #{params[:name]}"
+  execute "activate #{params[:type]}" do
     cwd node['wp_scaffold']['dir']
-    command "wp plugin activate #{params[:name]}"
-    # not_if do FileTest.directory?("#{node['wp_scaffold']['dir']}/wp-content/plugins/#{params[:name]}") end
+    command "wp #{params[:type]} activate #{params[:name]}"
+    only_if do FileTest.directory?("#{node['wp_scaffold']['dir']}/wp-content/#{params[:type]}s/#{params[:name]}") end
   end
 end
