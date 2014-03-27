@@ -19,6 +19,7 @@ define :wp_core_install do
 end
 
 define :wp_plugin_activate do
+  puts "Running wp plugin activate #{params[:name]}"
   execute "activate plugin" do
     cwd node['wp_scaffold']['dir']
     command "wp plugin activate #{params[:name]}"
